@@ -7,6 +7,10 @@
           "alarms",
           "notifications"
   ],
+    "background": {
+    "scripts": ["script.js"],
+    "persistent": false
+  },
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
     "action":{
         "default_popup": "index.html",
