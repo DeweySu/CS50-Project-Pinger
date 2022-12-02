@@ -11,20 +11,22 @@
 <body>
     <div class="container mt-3" style="width: 450px;">
         <h2 class="text-center">Websites to Monitor</h2>
-        <table class="table table-bordered" id="websiteTable">
+        <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>URL</th>
-                    <th>Last Updated</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">URL</th>
+                    <th scope="col">Last Updated</th>
                 </tr>
             </thead>
             <tbody>
+                {% for website in websites_monitored %}
                 <tr>
-                    <td id="websiteName"></td>
-                    <td id="URL"></td>
-                    <td id="lastUpdated"></td>
+                    <td>{{ website.name }}</td>
+                    <td>{{ website.url }}</td>
+                    <td>{{ website.last_updated }}</td>
                 </tr>
+                {% endfor %}
             </tbody>
         </table>
     </div>
