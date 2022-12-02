@@ -3,17 +3,17 @@ async function addWebsite() {
     const res=await fetch (url_to_add);
     const res_text = res.text();
 
-    var tableRow = document.getElementById("websiteTable");
-    var row = document.createElement("tr");
-    var name = document.createElement("td");
-    var url = document.createElement("td");
-    var last_updated = document.createElement("td");
+    let tableRow = document.getElementById("websiteTable");
+    let row = document.createElement("tr");
+    let name = document.createElement("td");
+    let url = document.createElement("td");
+    let last_updated = document.createElement("td");
     name.innerHTML = res_text.title;
-    cell2.innerHTML = url_to_add;
-    cell3.innerHTML = "N/A";
-    row.appendChild(cell1);
-    row.appendChild(cell2);
-    row.appendChild(cell3);
+    url.innerHTML = url_to_add;
+    last_updated.innerHTML = "N/A";
+    row.appendChild(name);
+    row.appendChild(url);
+    row.appendChild(last_updated);
     tableRow.appendChild(row);
 }
 addWebsite();
