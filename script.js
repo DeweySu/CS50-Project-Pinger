@@ -22,3 +22,9 @@ httpGet('https://youtube.com', function(response) {
     // parse the title tag here
 });
 */
+
+/*
+chrome.alarm.create('testAlarm', {
+	periodInMinutes: 1440
+});
+*/
