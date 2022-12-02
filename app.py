@@ -42,3 +42,7 @@ def index():
     websites_monitored = db.execute("SELECT DISTINCT * FROM Websites")
     return render_template("index.html", websites_monitored=websites_monitored)
 
+"""
+if update...:
+    flash("Ping! One of your websites has changed.")
+
