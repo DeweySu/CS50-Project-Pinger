@@ -10,4 +10,6 @@ import re
 from datetime import datetime
 
 app = Flask(__name__)
+
+# A SQL database to store the websites we're monitoring
 db = SQL("sqlite:///websites_monitored.db")
