@@ -7,7 +7,7 @@
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
     "background": {
         "service_worker": "script.js"
-    }
+    },
     "action":{
         "default_popup": "index.html",
         "default_title": "Pinger"
