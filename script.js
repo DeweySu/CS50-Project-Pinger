@@ -1,5 +1,3 @@
-
-/*
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#submit').addEventListener('click', function() {
         chrome.notifications.create('ping', {
@@ -11,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
-*/
 /* Getting title from URL (probably not complete) | Source: https://stackoverflow.com/questions/60291497/is-there-a-way-to-get-a-websites-full-title-from-the-google-custom-search-api
 function httpGet(theUrl)
 {
