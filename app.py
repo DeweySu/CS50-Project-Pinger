@@ -1,3 +1,4 @@
+# IMPORTANT: when testing, make sure that index.html is within a templates folder
 import os
 
 from cs50 import SQL
