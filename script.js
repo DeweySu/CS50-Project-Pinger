@@ -1,4 +1,9 @@
-async function addWebsite() {
+Notification.requestPermission().then((result) => {
+  console.log(result);
+});
+
+
+/* async function addWebsite() {
     let url_to_add = document.getElementById("newURL").value;
     const res=await fetch (url_to_add);
     const res_text = res.text();
@@ -30,6 +35,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 */
+
 /* Getting title from URL (probably not complete) | Source: https://stackoverflow.com/questions/60291497/is-there-a-way-to-get-a-websites-full-title-from-the-google-custom-search-api
 function httpGet(theUrl)
 {
