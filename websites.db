@@ -1,8 +1,0 @@
-(just the create statement here...)
-
-CREATE TABLE websites (
-id INTEGER,
-name TEXT,
-last_updated TEXT,
-PRIMARY KEY(id)
-);
