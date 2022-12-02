@@ -1,8 +1,4 @@
-// Potential APIs: https://developer.chrome.com/docs/extensions/reference/
-// Tasks: get relevant extension APIs (e.g. chrome.alarms, chrome.notifications), get website title from URL and update table in index.html accordingly
-// Make the API requests here!
-
-// add the below into conditional (e.g. if hash has changed, execute the below lines of code)
+const chrome = require('chrome');
 chrome.notifications.create('ping', {
     type: 'basic',
     iconUrl: 'pinger.png',
@@ -20,6 +16,6 @@ function httpGet(theUrl)
     return xmlHttp.responseText;
 }
 
-httpGet('http://some/url', function(response) {
+httpGet('https://youtube.com', function(response) {
     // parse the title tag here
 });
