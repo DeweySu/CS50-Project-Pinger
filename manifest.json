@@ -2,7 +2,7 @@
     "name": "Pinger",
     "version": "1.0.0",
     "description": "Tracking updates to websites",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "permissions": ["alarms", "notifications", "storage", "tabs"],
     "scripts": ["script.js"],
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
