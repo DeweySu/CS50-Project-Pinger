@@ -3,13 +3,10 @@
     "version": "1.0.0",
     "description": "Tracking updates to websites",
     "manifest_version": 2,
-    "permissions": [
-          "alarms",
-          "notifications"
-  ],
+    "permissions": ["alarms", "notifications", "storage", "tabs"],
     "background": {
-    "scripts": ["script.js"],
-    "persistent": false
+        "scripts": ["script.js"],
+        "persistent": false
   },
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
     "action":{
