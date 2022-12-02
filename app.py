@@ -18,7 +18,11 @@ db = SQL("sqlite:///websites_monitored.db")
 @app.route("/")
 def index():
   # User reached route via GET (as by clicking a link or via redirect)
+  
   # User reached route via POST (as by submitting a form via POST)
+  if request.method == "POST":
+    if not request.form.get("newURL"):
+      throw exception
   
   return render_template("index.html", websites_monitored=websites_monitored)
 
