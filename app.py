@@ -46,3 +46,5 @@ def index():
 if update...:
     flash("Ping! One of your websites has changed.")
 """
+# Use this regex to validate URL input: "^[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$"
+    # Source: https://uibakery.io/regex-library/url-regex-python
