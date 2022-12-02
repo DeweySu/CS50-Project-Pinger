@@ -1,4 +1,4 @@
-# For Flask
+# For Flask (important: make sure all this stuff can be run by anyone!)
 import os
 
 # from cs50 import SQL
@@ -8,3 +8,5 @@ from tempfile import mkdtemp
 
 import re
 from datetime import datetime
+
+app = Flask(__name__)
