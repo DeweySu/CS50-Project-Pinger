@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
             priority: 2
         });
     });
-}
+});
 /* Getting title from URL (probably not complete) | Source: https://stackoverflow.com/questions/60291497/is-there-a-way-to-get-a-websites-full-title-from-the-google-custom-search-api
 function httpGet(theUrl)
 {
