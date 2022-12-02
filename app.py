@@ -12,4 +12,8 @@ from datetime import datetime
 app = Flask(__name__)
 
 # A SQL database to store the websites we're monitoring
+# Columns are name, URL, times last updated, and the hash
 db = SQL("sqlite:///websites_monitored.db")
+
+
+
