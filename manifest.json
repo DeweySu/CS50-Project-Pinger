@@ -4,6 +4,7 @@
     "description": "Tracking updates to websites",
     "manifest_version": 1,
     "permissions": [
+          "alarms",
           "notifications"
   ],
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
