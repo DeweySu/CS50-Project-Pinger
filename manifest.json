@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "Tracking updates to websites",
     "manifest_version": 3,
-    "permissions": ["alarms", "notifications", "storage", "tabs"],
+    "permissions": ["notifications"],
     "author": "Dewey Su, Joseph Oronto-Pratt, Henry Xie",
     "action":{
         "default_popup": "index.html",
