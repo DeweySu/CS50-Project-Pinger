@@ -15,5 +15,10 @@ app = Flask(__name__)
 # Columns are name, URL, times last updated, and the hash
 db = SQL("sqlite:///websites_monitored.db")
 
-
+@app.route("/")
+def index():
+  # User reached route via GET (as by clicking a link or via redirect)
+  # User reached route via POST (as by submitting a form via POST)
+  
+  return render_template("index.html", websites_monitored=websites_monitored)
 
