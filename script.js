@@ -1,4 +1,3 @@
-const chrome = require('chrome');
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('#submit').addEventListener('click', function() {
         chrome.notifications.create('ping', {
