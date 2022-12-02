@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('#submit').addEventListener('click', function() {
+    document.querySelector('#temp').addEventListener('click', function() {
         chrome.notifications.create('ping', {
             type: 'basic',
             iconUrl: 'pinger.png',
