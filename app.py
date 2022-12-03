@@ -20,7 +20,7 @@ A SQL database to store the websites we're monitoring
 Schema:
 CREATE TABLE Websites (
   name TEXT,
-  url TEXT,
+  url TEXT UNIQUE,
   last_updated datetime,
   hash numeric
 );
@@ -50,7 +50,10 @@ def index():
     current_hash = hash(webpage.text)
 
     # Insert data into SQLite table
-    db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);", title, url, datetime.now(), current_hash)
+    try:
+      db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);", title, url, datetime.now(), current_hash)
+    except:
+      pass
     return redirect("/")
 
   # User reached route via GET (as by clicking a link or via redirect)
