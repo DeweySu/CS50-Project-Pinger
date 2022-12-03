@@ -27,20 +27,11 @@ CREATE TABLE Websites (
 """
 db = SQL("sqlite:///websites_monitored.db")
 
-@app.after_request
-def after_request(response):
-    """Ensure responses aren't cached"""
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    response.headers["Expires"] = 0
-    response.headers["Pragma"] = "no-cache"
-    return response
-
-
 @app.route("/", methods=["GET", "POST"])
 def index():
   # User reached route via POST (as by submitting a form via POST)
   if request.method == "POST":
-    url = request.form.get("newURL")
+    url = request.form.get("name")
 
     # If URL is invalid, redirect to main page and don't change anything
     if not validators.url(url):
@@ -48,18 +39,18 @@ def index():
 
     # Get the content of a webpage
     webpage = requests.get(url)
-    
+
     # Use BeautifulSoup to parse said webpage
     soup = BeautifulSoup(webpage.text, 'html.parser')
-    
+
     # Get title of webpage
-    title = soup.find('title')
+    title = str(soup.find('title').string)
 
     # Hash contents of webpage for future comparison
     current_hash = hash(webpage.text)
 
     # Insert data into SQLite table
-    db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);" title, url, datetime.now(), current_hash)
+    db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);", title, url, datetime.now(), current_hash)
     return redirect("/")
 
   # User reached route via GET (as by clicking a link or via redirect)
