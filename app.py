@@ -60,6 +60,7 @@ def index():
 
     # Insert data into SQLite table
     db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);" title, url, datetime.now(), current_hash)
+    return redirect("/")
 
   # User reached route via GET (as by clicking a link or via redirect)
   else:
