@@ -78,5 +78,5 @@ def remove():
     # Forget website
     url = request.form.get("url")
     if url:
-        db.execute("DELETE FROM websites_monitored WHERE url = ?", url)
+        db.execute("DELETE FROM Websites WHERE url = ?", url)
     return redirect("/")
