@@ -58,10 +58,12 @@ def index():
 
   # User reached route via GET (as by clicking a link or via redirect)
   else:
-    websites_monitored = db.execute("SELECT DISTINCT * FROM Websites;")
+    websites_monitored = db.execute("SELECT * FROM Websites;")
+    for website in websites_monitored:
+      initial_hash = website['hash']
+      current_hash = hash(requests.get(website['url']).text)
+      website_url = website['url']
+      if initial_hash != current_hash:
+        # flash("W")
+        db.execute("UPDATE Websites SET hash = ?, last_updated = ? WHERE url = ?", current_hash, datetime.now(), website_url)
     return render_template("index.html", websites_monitored=websites_monitored)
-
-"""
-if update...:
-    flash("Ping! One of your websites has changed.")
-"""
