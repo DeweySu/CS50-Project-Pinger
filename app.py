@@ -31,7 +31,7 @@ db = SQL("sqlite:///websites_monitored.db")
 def index():
   # User reached route via POST (as by submitting a form via POST)
   if request.method == "POST":
-    url = request.form.get("name")
+    url = request.form.get("url")
 
     # If URL is invalid, redirect to main page and don't change anything
     if not validators.url(url):
@@ -43,8 +43,12 @@ def index():
     # Use BeautifulSoup to parse said webpage
     soup = BeautifulSoup(webpage.text, 'html.parser')
 
-    # Get title of webpage
-    title = str(soup.find('title').string)
+    if not request.form.get("name"):
+        # Get title of webpage
+        title = str(soup.find('title').string)
+
+    else:
+        title = request.form.get("name")
 
     # Hash contents of webpage for future comparison
     current_hash = hash(webpage.text)
