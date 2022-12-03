@@ -24,16 +24,16 @@ while True:
 	try:
 		# perform the get request and store it in a var
 		response = urlopen(url).read()
-		
+
 		# create a hash
 		currentHash = hashlib.sha224(response).hexdigest()
-		
+
 		# wait for 30 seconds
 		time.sleep(30)
-		
+
 		# perform the get request
 		response = urlopen(url).read()
-		
+
 		# create a new hash
 		newHash = hashlib.sha224(response).hexdigest()
 
@@ -55,7 +55,7 @@ while True:
 			# wait for 30 seconds
 			time.sleep(30)
 			continue
-			
+
 	# To handle exceptions
 	except Exception as e:
 		print("error")
