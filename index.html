@@ -59,6 +59,12 @@
                     <td>{{ website.name }}</td>
                     <td>{{ website.url }}</td>
                     <td>{{ website.last_updated }}</td>
+                    <td>
+                        <form action="/remove" method="post">
+                            <input name="url" type="hidden" value="{{ website.url }}">
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
