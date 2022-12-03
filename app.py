@@ -71,3 +71,12 @@ def index():
         # flash("W")
         db.execute("UPDATE Websites SET hash = ?, last_updated = ? WHERE url = ?", current_hash, datetime.now(), website_url)
     return render_template("index.html", websites_monitored=websites_monitored)
+
+@app.route("/remove", methods=["POST"])
+def remove():
+
+    # Forget website
+    url = request.form.get("url")
+    if url:
+        db.execute("DELETE FROM websites_monitored WHERE url = ?", url)
+    return redirect("/")
