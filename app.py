@@ -74,7 +74,6 @@ def index():
 
 @app.route("/remove", methods=["POST"])
 def remove():
-
     # Forget website
     url = request.form.get("url")
     if url:
