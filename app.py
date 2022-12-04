@@ -63,14 +63,15 @@ def index():
   # User reached route via GET (as by clicking a link or via redirect)
   else:
     websites_monitored = db.execute("SELECT * FROM Websites;")
+    locations_changed = []
     for website in websites_monitored:
       initial_hash = website['hash']
       current_hash = hash(requests.get(website['url']).text)
       website_url = website['url']
       if initial_hash != current_hash:
-        # flash("W")
         db.execute("UPDATE Websites SET hash = ?, last_updated = ? WHERE url = ?", current_hash, datetime.now(), website_url)
-    return render_template("index.html", websites_monitored=websites_monitored)
+        locations_changed.append(website['name'])
+    return render_template("index.html", websites_monitored=websites_monitored, locations_changed=locations_changed, length=len(locations_changed))
 
 @app.route("/remove", methods=["POST"])
 def remove():
