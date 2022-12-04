@@ -1,7 +1,19 @@
 # CS50-Project-Pinger
-A web app that notifies users when a website is changed
+Pinger is a web app that notifies users whenever selected websites are updated. 
 
-# Instructions
+# Installation
 
-For this app to run properly, you'll need to install the requests, validators, and Beautiful Soup libraries.
-In terminal, type "pip3 install requests", "pip3 install validators", and "pip3 install beautifulsoup4".
+For this app to run properly, you'll need to install several libraries (on top of the libraries and packages required for CS50). Run the following commands in your terminal:
+
+'''
+# Install validators library
+pip3 install validators
+
+# Install requests library
+pip3 install requests
+
+# Install BeautifulSoup library
+pip3 install beautifulsoup4
+'''
+
+
