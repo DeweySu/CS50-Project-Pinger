@@ -1,12 +1,10 @@
 # IMPORTANT: when testing, make sure that index.html is within a templates folder
-import os
-
 from cs50 import SQL
-from flask import Flask, flash, redirect, render_template, request, session
-from flask_session import Session
-from datetime import datetime
+from flask import Flask, redirect, render_template, request
+from datetime import datetime, timezone
 import validators
 import requests
+import hashlib
 from bs4 import BeautifulSoup
 
 app = Flask(__name__)
@@ -39,12 +37,9 @@ def index():
 
     # Get the content of a webpage
     webpage = requests.get(url)
-
     # Use BeautifulSoup to parse said webpage
     soup = BeautifulSoup(webpage.text, 'html.parser')
 
-    # If user inputted a website name, set website name to user input
-    
     if not request.form.get("name"):
         # Get title of webpage
         title = str(soup.find('title').string)
@@ -53,7 +48,7 @@ def index():
         title = request.form.get("name")
 
     # Hash contents of webpage for future comparison
-    current_hash = hash(webpage.text)
+    current_hash = hashlib.sha256(webpage.text.encode('utf-8')).hexdigest()
 
     # Insert data into SQLite table
     try:
@@ -66,12 +61,9 @@ def index():
   else:
     websites_monitored = db.execute("SELECT * FROM Websites;")
     locations_changed = []
-    
-    # Check which websites have been updated
-    
     for website in websites_monitored:
       initial_hash = website['hash']
-      current_hash = hash(requests.get(website['url']).text)
+      current_hash = hashlib.sha256(requests.get(website['url']).text.encode('utf-8')).hexdigest()
       website_url = website['url']
       if initial_hash != current_hash:
         db.execute("UPDATE Websites SET hash = ?, last_updated = ? WHERE url = ?", current_hash, datetime.now(), website_url)
@@ -80,7 +72,7 @@ def index():
 
 @app.route("/remove", methods=["POST"])
 def remove():
-    # Forget website
+    # Forget website (delete it from table of websites that the user's tracking)
     url = request.form.get("url")
     if url:
         db.execute("DELETE FROM Websites WHERE url = ?", url)
