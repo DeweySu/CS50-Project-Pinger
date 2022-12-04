@@ -43,6 +43,8 @@ def index():
     # Use BeautifulSoup to parse said webpage
     soup = BeautifulSoup(webpage.text, 'html.parser')
 
+    # If user inputted a website name, set website name to user input
+    
     if not request.form.get("name"):
         # Get title of webpage
         title = str(soup.find('title').string)
@@ -64,6 +66,9 @@ def index():
   else:
     websites_monitored = db.execute("SELECT * FROM Websites;")
     locations_changed = []
+    
+    # Check which websites have been updated
+    
     for website in websites_monitored:
       initial_hash = website['hash']
       current_hash = hash(requests.get(website['url']).text)
