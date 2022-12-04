@@ -17,5 +17,13 @@ pip3 install beautifulsoup4
 ```
 
 From there, install the code files in this GitHub repository, and enter the following into your terminal:
+```
+cd CS50-Project-Pinger
+```
+From there, just run this line in your terminal:
+```
+CS50-Project-Pinger/ $ flask run
+```
+and open the resulting link.
 
 # Instructions
