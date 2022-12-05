@@ -52,7 +52,7 @@ def index():
 
     # Insert data into SQLite table
     try:
-      db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);", title, url, datetime.now(), current_hash)
+      db.execute("INSERT INTO Websites (name, url, last_updated, hash) VALUES (?, ?, ?, ?);", title, url, datetime.utcnow(), current_hash)
     except:
       pass
     return redirect("/")
