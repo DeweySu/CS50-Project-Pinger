@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script>
         // Pings when change detected in existing website
-        if ('{{locations_changed}}'.length > 0) {
+        if ('{{length}}' > 0) {
             Notification.requestPermission().then(perm => {
                 if (perm === 'granted') {
                     new Notification("Website has been updated!", { body: '{% for location in locations_changed %}{{location}}\n{% endfor %}', icon: '/static/pinger.png' })
